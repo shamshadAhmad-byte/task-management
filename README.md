@@ -170,7 +170,10 @@ npm run preview # Preview production build
 
    step 2: docker-compose up -d --build
 
+   when run upper command
+   
    frontend-url: http://localhost:5173
+
 
 
 
