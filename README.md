@@ -2,63 +2,6 @@
 
 A full-stack Task Management Application built with the MERN Stack (MongoDB, Express.js, React.js, Node.js).
 
-## Features
-
-### Core Features
-- **User Authentication**
-  - User registration with validation
-  - User login with JWT token authentication
-  - Password hashing using bcrypt
-  - Secure token-based authentication system
-
-- **Task Management**
-  - Create new tasks
-  - View all tasks in a clean dashboard
-  - Edit/update existing tasks
-  - Delete tasks
-  - Mark tasks as completed/incomplete with visual indicators
-  - Search tasks by title or description
-  - Filter tasks by status (All, Pending, Completed)
-
-- **Task Properties**
-  - Title (required)
-  - Description (optional)
-  - Status (Pending/Completed)
-  - Created Date (auto-generated)
-  - Due Date (optional)
-
-- **Dashboard Features**
-  - Beautiful, intuitive user interface
-  - Real-time task updates
-  - Task status filtering
-  - Search functionality
-  - Responsive design for all devices
-  - User profile with logout functionality
-  - Loading states and error handling
-
-### Bonus Features
-- Search tasks by title or description
-- Responsive web design (Mobile, Tablet, Desktop)
-- Clean code structure with separated concerns
-- Proper error handling on both frontend and backend
-- Input validation on both sides
-- Environment variables for security
-
-## Tech Stack
-
-### Frontend
-- **React.js** - UI library with functional components and hooks
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API calls
-- **CSS3** - Responsive styling
-
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
-- **JWT** - Token-based authentication
-- **bcrypt** - Password hashing
 
 ## Project Structure
 
@@ -123,95 +66,75 @@ task-management/
 ### Prerequisites
 - Node.js (v14 or higher)
 - MongoDB (Local or Atlas)
-- npm
+- npm or yarn
+
+### Backend Setup
+
+1. **Navigate to backend directory**
+   ```bash
+   cd backend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Create .env file**
+   ```bash
+   cp ../.env.example .env
+   ```
+
+4. **Configure .env file**
+   ```
+   MONGODB_URI=mongodb://localhost:27017/task-management
+   JWT_SECRET=your_secret_key_here
+   PORT=5000
+   NODE_ENV=development
+   CORS_ORIGIN=http://localhost:5173
+   ```
+
+5. **Start MongoDB** (if running locally)
+   ```bash
+   mongod
+   ```
+
+6. **Start the backend server**
+   ```bash
+   npm run dev
+   ```
+   The server will run on `http://localhost:5000`
+
+### Frontend Setup
+
+1. **Navigate to frontend directory** (in a new terminal)
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Create .env file**
+   ```
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The app will run on `http://localhost:5173`
 
 
-## API Endpoints
-
-### Authentication Routes (`/api/auth`)
-- `POST /auth/register` - Register a new user
-- `POST /auth/login` - Login user
-
-### Task Routes (`/api/tasks`)
-- `GET /tasks` - Get all tasks (with optional status filter)
-- `GET /tasks/:id` - Get single task
-- `POST /tasks` - Create new task
-- `PUT /tasks/:id` - Update task
-- `DELETE /tasks/:id` - Delete task
-- `GET /tasks/search?query=` - Search tasks
-
-## Usage
-
-### Registration
-1. Go to `http://localhost:5173/register`
-2. Enter your details (name, email, password)
-3. Click "Register"
-4. You'll be automatically logged in and redirected to the dashboard
-
-### Login
-1. Go to `http://localhost:5173/login`
-2. Enter your email and password
-3. Click "Login"
-4. You'll be redirected to the dashboard
-
-### Creating a Task
-1. Click "+ Add New Task" button
-2. Fill in the task details:
-   - Title (required)
-   - Description (optional)
-   - Due Date (optional)
-3. Click "Create Task"
-
-### Managing Tasks
-- **Edit Task**: Click "Edit" button on any task
-- **Delete Task**: Click "Delete" button (confirmation required)
-- **Toggle Status**: Check the checkbox to mark as completed/pending
-- **Filter Tasks**: Use the filter buttons (All, Pending, Completed)
-- **Search Tasks**: Use the search bar to find tasks by title or description
-
-## Input Validation
-
-### Frontend Validation
-- Email format validation
-- Password match validation
-- Task title is required
-- Form fields validation
-
-### Backend Validation
-- Email uniqueness check
-- Password hashing
-- Task title required check
-- User authorization checks
-
-## Security Features
-
-- **Password Hashing**: Bcrypt with salt rounds
-- **JWT Authentication**: Secure token-based auth
-- **Protected Routes**: Private route protection
-- **CORS**: Configured to allow only frontend origin
-- **Environment Variables**: Secrets stored safely
-
-## Error Handling
-
-- **Backend**: Try-catch blocks with meaningful error messages
-- **Frontend**: Error messages displayed to users
-- **Loading States**: Loading indicators during API calls
-- **Validation Messages**: Clear validation feedback
-
-## Responsive Design
-
-The application is fully responsive and works on:
-- Desktop (1024px and above)
-- Tablet (768px to 1023px)
-- Mobile (320px to 767px)
-
-Tested on Chrome, Firefox, Safari, and Edge browsers.
 
 ## Environment Variables
 
 ### Backend (.env)
 ```
-MONGODB_URI=mongodb://mongo:27017/task-management
+MONGODB_URI=mongodb://localhost:27017/task-management
 JWT_SECRET=your_secret_key_change_this_in_production
 PORT=5000
 NODE_ENV=development
@@ -225,13 +148,21 @@ VITE_API_URL=http://localhost:5000/api
 
 ## Scripts
 
-Run Docker Command 
+### Backend
+```bash
+npm run dev    # Start development server with nodemon
+npm start      # Start production server
+```
 
-    step 1: docker-compose down
-    
-    step 2: docker-compose up -d --build
+### Frontend
+```bash
+npm run dev    # Start development server
+npm run build  # Build for production
+npm run preview # Preview production build
+```
+## Docker Setup
 
-    frontend-URL: http://localhost:5173
+   step 1: If you have already install docker run command
 
-
+   step 2: docker-compose up -d --build
 
