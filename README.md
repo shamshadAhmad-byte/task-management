@@ -226,10 +226,12 @@ VITE_API_URL=http://localhost:5000/api
 ## Scripts
 
 Run Docker Command 
+
     step 1: docker-compose down
     
     step 2: docker-compose up -d --build
 
     frontend-URL: http://localhost:5173
+
 
 
