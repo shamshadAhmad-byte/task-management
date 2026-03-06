@@ -165,9 +165,13 @@ npm run preview # Preview production build
 ## Docker Setup
 
    You must run docker if you have
+   
    step 1: If you have already install docker run command
 
    step 2: docker-compose up -d --build
+
+   frontend-url: http://localhost:5173
+
 
 
 
