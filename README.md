@@ -87,7 +87,8 @@ task-management/
 
 4. **Configure .env file**
    ```
-   MONGODB_URI=mongodb://mongo:27017/task-management
+   When you use docker -> MONGODB_URI=mongodb://mongo:27017/task-management
+   Otherwise this -> MONGODB_URI=mongodb://localhost:27017/task-management
    JWT_SECRET=your_secret_key_here
    PORT=5000
    NODE_ENV=development
@@ -134,7 +135,8 @@ task-management/
 
 ### Backend (.env)
 ```
-MONGODB_URI=mongodb://localhost:27017/task-management
+when you use docker -> MONGODB_URI=mongodb://mongo:27017/task-management
+Otherwise this -> MONGODB_URI=mongodb://localhost:27017/task-management
 JWT_SECRET=your_secret_key_change_this_in_production
 PORT=5000
 NODE_ENV=development
@@ -162,8 +164,10 @@ npm run preview # Preview production build
 ```
 ## Docker Setup
 
+   You must run docker if you have
    step 1: If you have already install docker run command
 
    step 2: docker-compose up -d --build
+
 
 
